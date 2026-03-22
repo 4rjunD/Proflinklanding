@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { RocketIcon, ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
@@ -44,7 +44,6 @@ export function HeroSection() {
 					)}
 					href="#how-it-works"
 				>
-					<RocketIcon className="size-3 text-primary" />
 					<span className="text-xs">See our process</span>
 					<span className="block h-5 border-l" />
 

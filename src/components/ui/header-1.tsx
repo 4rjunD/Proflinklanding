@@ -55,19 +55,23 @@ export function Header() {
 					))}
 					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer"><Button className="bg-primary hover:bg-primary/90">Get Started</Button></a>
 				</div>
-				<Button
-					size="icon"
-					variant="outline"
-					onClick={() => setOpen(!open)}
-					className="md:hidden"
-					aria-expanded={open}
-					aria-controls="mobile-menu"
-					aria-label="Toggle menu"
-				>
-					<MenuToggleIcon open={open} className="size-5" duration={300} />
-				</Button>
+				<div className="flex items-center gap-2 md:hidden">
+					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer">
+						<Button size="sm" className="bg-primary hover:bg-primary/90 rounded-full text-xs px-4">Get Started</Button>
+					</a>
+					<Button
+						size="icon"
+						variant="outline"
+						onClick={() => setOpen(!open)}
+						aria-expanded={open}
+						aria-controls="mobile-menu"
+						aria-label="Toggle menu"
+					>
+						<MenuToggleIcon open={open} className="size-5" duration={300} />
+					</Button>
+				</div>
 			</nav>
-			<MobileMenu open={open} className="flex flex-col justify-between gap-2">
+			<MobileMenu open={open} onClose={() => setOpen(false)} className="flex flex-col justify-between gap-2">
 				<div className="grid gap-y-2">
 					{links.map((link) => (
 						<a
@@ -77,13 +81,11 @@ export function Header() {
 								className: 'justify-start',
 							})}
 							href={link.href}
+							onClick={() => setOpen(false)}
 						>
 							{link.label}
 						</a>
 					))}
-				</div>
-				<div className="flex flex-col gap-2">
-					<Button className="w-full">Get Started</Button>
 				</div>
 			</MobileMenu>
 		</header>
@@ -92,9 +94,10 @@ export function Header() {
 
 type MobileMenuProps = React.ComponentProps<'div'> & {
 	open: boolean;
+	onClose: () => void;
 };
 
-function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
+function MobileMenu({ open, onClose, children, className, ...props }: MobileMenuProps) {
 	if (!open || typeof window === 'undefined') return null;
 
 	return createPortal(
