@@ -41,8 +41,49 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-            <table className="w-full text-left text-sm min-w-[640px]">
+          {/* Mobile: stacked cards */}
+          <div className="space-y-6 md:hidden">
+            {[
+              { label: "Price", us: "$1,000", them: "$4,000 - $7,000+" , isPrice: true },
+              { label: "Professor independence", us: "Fully independent. No affiliation with ProfLink. They mentor based on genuine interest.", them: "Paid by the agency, creating a transactional relationship admissions officers see through." },
+              { label: "Credibility", us: "100% authentic. Outreach from your own email. The relationship is real and verifiable.", them: "Programs are well-known to admissions committees. Participation alone doesn't differentiate you." },
+              { label: "How outreach works", us: "Personalized cold emails from your own Gmail. Professors see a real student, not a company.", them: "Agency assigns you to an affiliated professor. No real networking skills developed." },
+              { label: "AI research support", us: "AI assistant helps find papers, structure writing, understand methodology, and cite sources.", them: "Limited or no ongoing support after placement. You're largely on your own." },
+              { label: "Recommendation letters", us: "Earned organically from a professor who genuinely supervised your work.", them: "Often templated or expected as part of the paid program package." },
+            ].map((row) => (
+              <div key={row.label} className="rounded-xl border p-5">
+                <h3 className="font-semibold text-sm mb-3">{row.label}</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <span className="text-xs font-medium text-primary block mb-1.5">ProfLink</span>
+                    {row.isPrice ? (
+                      <span className="text-xl font-bold text-primary">{row.us}</span>
+                    ) : (
+                      <div className="flex items-start gap-1.5">
+                        <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-xs leading-relaxed">{row.us}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium text-muted-foreground block mb-1.5">Others</span>
+                    {row.isPrice ? (
+                      <span className="text-xl font-bold text-muted-foreground">{row.them}</span>
+                    ) : (
+                      <div className="flex items-start gap-1.5">
+                        <X className="size-4 text-red-500 shrink-0 mt-0.5" />
+                        <span className="text-xs leading-relaxed text-muted-foreground">{row.them}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: table */}
+          <div className="hidden md:block">
+            <table className="w-full text-left text-sm">
               <thead>
                 <tr className="border-b">
                   <th className="py-4 pr-4 font-medium text-muted-foreground w-1/3"></th>
