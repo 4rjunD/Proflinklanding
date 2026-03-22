@@ -64,7 +64,7 @@ export function HeroSection() {
 					<br />Opportunities to stand out through your work.
 				</p>
 
-				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-3 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
+				<div data-cta-section className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-3 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
 					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer">
 						<Button className="rounded-full bg-primary hover:bg-primary/90" size="lg">
 							Get Started{" "}

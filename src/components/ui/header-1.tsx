@@ -6,9 +6,44 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 import { createPortal } from 'react-dom';
 
+function useCtaVisible() {
+	const [visible, setVisible] = React.useState(true);
+
+	React.useEffect(() => {
+		const targets = document.querySelectorAll('[data-cta-section]');
+		if (targets.length === 0) {
+			setVisible(false);
+			return;
+		}
+
+		const visibleSet = new Set<Element>();
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						visibleSet.add(entry.target);
+					} else {
+						visibleSet.delete(entry.target);
+					}
+				});
+				setVisible(visibleSet.size > 0);
+			},
+			{ threshold: 0.1 }
+		);
+
+		targets.forEach((t) => observer.observe(t));
+		return () => observer.disconnect();
+	}, []);
+
+	return visible;
+}
+
 export function Header() {
 	const [open, setOpen] = React.useState(false);
 	const scrolled = useScroll(10);
+	const ctaOnScreen = useCtaVisible();
+	const showHeaderCta = !ctaOnScreen;
 
 	const links = [
 		{
@@ -53,11 +88,29 @@ export function Header() {
 							{link.label}
 						</a>
 					))}
-					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer"><Button className="bg-primary hover:bg-primary/90">Get Started</Button></a>
+					<a
+						href="https://form.typeform.com/to/KWrV6NVC"
+						target="_blank"
+						rel="noopener noreferrer"
+						className={cn(
+							'transition-all duration-300',
+							showHeaderCta ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
+						)}
+					>
+						<Button className="bg-primary hover:bg-primary/90">Get Started</Button>
+					</a>
 				</div>
 				<div className="flex items-center gap-2 md:hidden">
-					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer">
-						<Button size="sm" className="bg-primary hover:bg-primary/90 rounded-full text-xs px-4">Get Started</Button>
+					<a
+						href="https://form.typeform.com/to/KWrV6NVC"
+						target="_blank"
+						rel="noopener noreferrer"
+						className={cn(
+							'transition-all duration-300',
+							showHeaderCta ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none w-0 overflow-hidden'
+						)}
+					>
+						<Button size="sm" className="bg-primary hover:bg-primary/90 rounded-full text-xs px-4 whitespace-nowrap">Get Started</Button>
 					</a>
 					<Button
 						size="icon"

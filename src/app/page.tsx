@@ -189,7 +189,7 @@ export default function Home() {
         </div>
 
         {/* Get Started CTA */}
-        <section className="relative mx-auto max-w-3xl px-4 py-24 text-center overflow-hidden">
+        <section data-cta-section className="relative mx-auto max-w-3xl px-4 py-24 text-center overflow-hidden">
           <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_50%,oklch(0.45_0.12_25/.06),transparent)]" />
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
             Ready to start your research journey?
