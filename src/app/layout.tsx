@@ -13,8 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ProfLink - Student Research Placement Platform",
-  description: "Land real academic research opportunities as a middle or high school student. Personalized professor outreach and AI-guided research.",
+  title: "ProfLink | Research That Sets You Apart",
+  description:
+    "Connect with real university professors and land independent research opportunities. Personalized outreach from your own email, powered by AI.",
+  metadataBase: new URL("https://proflink.org"),
+  openGraph: {
+    title: "ProfLink | Research That Sets You Apart",
+    description:
+      "Connect with real university professors and land independent research opportunities. No pay-to-play programs.",
+    url: "https://proflink.org",
+    siteName: "ProfLink",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ProfLink - Research That Sets You Apart",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProfLink | Research That Sets You Apart",
+    description:
+      "Connect with real university professors and land independent research opportunities.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
