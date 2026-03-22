@@ -72,7 +72,7 @@ const admissionsTestimonials: Testimonial[] = [
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <Card className="w-[340px] shrink-0 p-6 bg-card border-border">
+    <Card className="w-[340px] shrink-0 p-6 bg-card border-border border-l-2 border-l-primary/30 hover:border-l-primary transition-colors duration-300">
       <div className="mb-4">
         <span className="font-semibold text-base">{t.name}</span>
         <span className="block text-xs text-muted-foreground mt-0.5">

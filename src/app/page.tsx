@@ -41,12 +41,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <table className="w-full text-left text-sm min-w-[640px]">
               <thead>
                 <tr className="border-b">
                   <th className="py-4 pr-4 font-medium text-muted-foreground w-1/3"></th>
-                  <th className="py-4 px-4 font-semibold text-lg">
+                  <th className="py-4 px-4 font-semibold text-lg text-primary">
                     <span className="inline-flex items-center gap-2">ProfLink</span>
                   </th>
                   <th className="py-4 px-4 font-medium text-muted-foreground text-lg">Other Agencies</th>
@@ -56,7 +56,7 @@ export default function Home() {
                 <tr>
                   <td className="py-5 pr-4 font-medium">Price</td>
                   <td className="py-5 px-4">
-                    <span className="text-2xl font-bold">$1,000</span>
+                    <span className="text-2xl font-bold text-primary">$1,000</span>
                   </td>
                   <td className="py-5 px-4 text-muted-foreground">
                     <span className="text-2xl font-bold">$4,000 - $7,000+</span>
@@ -66,7 +66,7 @@ export default function Home() {
                   <td className="py-5 pr-4 font-medium">Professor independence</td>
                   <td className="py-5 px-4">
                     <div className="flex items-start gap-2">
-                      <Check className="size-5 text-green-600 shrink-0 mt-0.5" />
+                      <Check className="size-5 text-primary shrink-0 mt-0.5" />
                       <span>Professors are fully independent. They have no affiliation with ProfLink and choose to mentor based on genuine interest.</span>
                     </div>
                   </td>
@@ -81,7 +81,7 @@ export default function Home() {
                   <td className="py-5 pr-4 font-medium">Credibility</td>
                   <td className="py-5 px-4">
                     <div className="flex items-start gap-2">
-                      <Check className="size-5 text-green-600 shrink-0 mt-0.5" />
+                      <Check className="size-5 text-primary shrink-0 mt-0.5" />
                       <span>100% authentic. Your outreach comes from your own email. The research relationship is real and verifiable.</span>
                     </div>
                   </td>
@@ -96,7 +96,7 @@ export default function Home() {
                   <td className="py-5 pr-4 font-medium">How outreach works</td>
                   <td className="py-5 px-4">
                     <div className="flex items-start gap-2">
-                      <Check className="size-5 text-green-600 shrink-0 mt-0.5" />
+                      <Check className="size-5 text-primary shrink-0 mt-0.5" />
                       <span>Personalized cold emails sent from your own Gmail. Professors see a real student, not a company.</span>
                     </div>
                   </td>
@@ -111,7 +111,7 @@ export default function Home() {
                   <td className="py-5 pr-4 font-medium">AI research support</td>
                   <td className="py-5 px-4">
                     <div className="flex items-start gap-2">
-                      <Check className="size-5 text-green-600 shrink-0 mt-0.5" />
+                      <Check className="size-5 text-primary shrink-0 mt-0.5" />
                       <span>AI assistant helps you find papers, structure your writing, understand methodology, and cite sources.</span>
                     </div>
                   </td>
@@ -126,7 +126,7 @@ export default function Home() {
                   <td className="py-5 pr-4 font-medium">Recommendation letters</td>
                   <td className="py-5 px-4">
                     <div className="flex items-start gap-2">
-                      <Check className="size-5 text-green-600 shrink-0 mt-0.5" />
+                      <Check className="size-5 text-primary shrink-0 mt-0.5" />
                       <span>Earned organically from a professor who genuinely supervised your work.</span>
                     </div>
                   </td>
@@ -148,7 +148,8 @@ export default function Home() {
         </div>
 
         {/* Get Started CTA */}
-        <section className="mx-auto max-w-3xl px-4 py-24 text-center">
+        <section className="relative mx-auto max-w-3xl px-4 py-24 text-center overflow-hidden">
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_50%,oklch(0.45_0.12_25/.06),transparent)]" />
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
             Ready to start your research journey?
           </h2>
@@ -160,7 +161,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="mt-8 rounded-full px-8" size="lg">
+            <Button className="mt-8 rounded-full px-8 bg-primary hover:bg-primary/90" size="lg">
               Get Started
               <ArrowRightIcon className="size-4 ml-2" />
             </Button>

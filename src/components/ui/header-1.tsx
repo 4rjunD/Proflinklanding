@@ -53,7 +53,7 @@ export function Header() {
 							{link.label}
 						</a>
 					))}
-					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer"><Button>Get Started</Button></a>
+					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer"><Button className="bg-primary hover:bg-primary/90">Get Started</Button></a>
 				</div>
 				<Button
 					size="icon"

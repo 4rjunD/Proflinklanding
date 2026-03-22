@@ -6,12 +6,12 @@ import { LogoCloud } from "@/components/ui/logo-cloud-3";
 export function HeroSection() {
 	return (
 		<section className="relative mx-auto w-full max-w-5xl overflow-hidden">
-			{/* Top Shades */}
+			{/* Warm radial glow */}
 			<div
 				aria-hidden="true"
 				className="absolute inset-0 isolate hidden overflow-hidden contain-strict lg:block"
 			>
-				<div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,--theme(--color-foreground/.08),transparent)] contain-strict" />
+				<div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(40%_70%_at_50%_0%,oklch(0.45_0.12_25/.08),transparent)] contain-strict" />
 			</div>
 
 			{/* X Bold Faded Borders */}
@@ -44,7 +44,7 @@ export function HeroSection() {
 					)}
 					href="#how-it-works"
 				>
-					<RocketIcon className="size-3 text-muted-foreground" />
+					<RocketIcon className="size-3 text-primary" />
 					<span className="text-xs">See our process</span>
 					<span className="block h-5 border-l" />
 
@@ -67,7 +67,7 @@ export function HeroSection() {
 
 				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-3 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
 					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer">
-						<Button className="rounded-full" size="lg">
+						<Button className="rounded-full bg-primary hover:bg-primary/90" size="lg">
 							Get Started{" "}
 							<ArrowRightIcon className="size-4 ms-2" />
 						</Button>

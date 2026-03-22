@@ -123,7 +123,7 @@ export default function Plan() {
                   className={cn(
                     "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all duration-700 ease-out",
                     isActive
-                      ? "bg-foreground text-background scale-110"
+                      ? "bg-primary text-primary-foreground scale-110"
                       : "bg-muted text-muted-foreground"
                   )}
                 >
@@ -133,7 +133,7 @@ export default function Plan() {
                   <div className="relative w-px flex-1 bg-border mt-3">
                     <div
                       className={cn(
-                        "absolute inset-x-0 top-0 w-full bg-foreground transition-all duration-1000 ease-out",
+                        "absolute inset-x-0 top-0 w-full bg-primary transition-all duration-1000 ease-out",
                         isActive ? "h-full" : "h-0"
                       )}
                     />
