@@ -1,0 +1,127 @@
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { RocketIcon, ArrowRightIcon } from "lucide-react";
+import { LogoCloud } from "@/components/ui/logo-cloud-3";
+
+export function HeroSection() {
+	return (
+		<section className="relative mx-auto w-full max-w-5xl overflow-hidden">
+			{/* Top Shades */}
+			<div
+				aria-hidden="true"
+				className="absolute inset-0 isolate hidden overflow-hidden contain-strict lg:block"
+			>
+				<div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,--theme(--color-foreground/.08),transparent)] contain-strict" />
+			</div>
+
+			{/* X Bold Faded Borders */}
+			<div
+				aria-hidden="true"
+				className="absolute inset-0 mx-auto hidden w-full max-w-5xl lg:block"
+			>
+				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 left-0 z-10 h-full w-px bg-foreground/15" />
+				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 right-0 z-10 h-full w-px bg-foreground/15" />
+			</div>
+
+			{/* main content */}
+
+			<div className="relative flex flex-col items-center justify-center gap-5 pt-32 pb-30">
+				{/* X Content Faded Borders */}
+				<div
+					aria-hidden="true"
+					className="absolute inset-0 -z-1 size-full overflow-hidden"
+				>
+					<div className="absolute inset-y-0 left-4 w-px bg-linear-to-b from-transparent via-border to-border md:left-8" />
+					<div className="absolute inset-y-0 right-4 w-px bg-linear-to-b from-transparent via-border to-border md:right-8" />
+					<div className="absolute inset-y-0 left-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:left-12" />
+					<div className="absolute inset-y-0 right-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:right-12" />
+				</div>
+
+				<a
+					className={cn(
+						"group mx-auto flex w-fit items-center gap-3 rounded-full border bg-card px-3 py-1 shadow",
+						"fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards transition-all delay-500 duration-500 ease-out"
+					)}
+					href="#how-it-works"
+				>
+					<RocketIcon className="size-3 text-muted-foreground" />
+					<span className="text-xs">See our process</span>
+					<span className="block h-5 border-l" />
+
+					<ArrowRightIcon className="size-3 duration-150 ease-out group-hover:translate-x-1" />
+				</a>
+
+				<h1
+					className={cn(
+						"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl tracking-tight delay-100 duration-500 ease-out md:text-5xl lg:text-6xl",
+						"text-shadow-[0_0px_50px_theme(--color-foreground/.2)]"
+					)}
+				>
+					Land Real Research <br /> Opportunities as a Student
+				</h1>
+
+				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-lg animate-in fill-mode-backwards text-center text-base text-foreground/80 tracking-wider delay-200 duration-500 ease-out sm:text-lg md:text-xl">
+					Personalized outreach to professors. AI-guided research.
+					<br />Opportunities to stand out through your work.
+				</p>
+
+				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-3 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
+					<a href="https://form.typeform.com/to/KWrV6NVC" target="_blank" rel="noopener noreferrer">
+						<Button className="rounded-full" size="lg">
+							Get Started{" "}
+							<ArrowRightIcon className="size-4 ms-2" />
+						</Button>
+					</a>
+				</div>
+			</div>
+		</section>
+	);
+}
+
+export function LogosSection() {
+	return (
+		<section className="relative space-y-4 border-t pt-6 pb-10">
+			<h2 className="text-center font-medium text-lg text-muted-foreground tracking-tight md:text-xl">
+				Students placed at <span className="text-foreground">top universities</span>
+			</h2>
+			<div className="relative z-10 mx-auto max-w-4xl">
+				<LogoCloud logos={logos} />
+			</div>
+		</section>
+	);
+}
+
+const logos = [
+	{
+		src: "/logos/stanford.svg",
+		alt: "Stanford University",
+	},
+	{
+		src: "/logos/mit.svg",
+		alt: "MIT",
+	},
+	{
+		src: "/logos/ucla.svg",
+		alt: "UCLA",
+	},
+	{
+		src: "/logos/harvard.svg",
+		alt: "Harvard University",
+	},
+	{
+		src: "/logos/berkeley.svg",
+		alt: "UC Berkeley",
+	},
+	{
+		src: "/logos/princeton.svg",
+		alt: "Princeton University",
+	},
+	{
+		src: "/logos/yale.svg",
+		alt: "Yale University",
+	},
+	{
+		src: "/logos/columbia.svg",
+		alt: "Columbia University",
+	},
+];
