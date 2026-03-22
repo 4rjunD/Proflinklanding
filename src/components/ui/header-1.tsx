@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
@@ -79,9 +80,10 @@ export function Header() {
 			})}
 		>
 			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
-				<div className="hover:bg-accent rounded-md p-2">
-					<WordmarkIcon className="h-4" />
-				</div>
+				<a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+					<Image src="/Proflinklogotransparent.png" alt="ProfLink" width={24} height={24} className="size-6" />
+					<span className="text-lg font-semibold tracking-tight">ProfLink</span>
+				</a>
 				<div className="hidden items-center gap-2 md:flex">
 					{links.map((link) => (
 						<a key={link.label} className={buttonVariants({ variant: 'ghost' })} href={link.href}>
@@ -179,8 +181,3 @@ function MobileMenu({ open, onClose, children, className, ...props }: MobileMenu
 
 
 
-export const WordmarkIcon = (props: React.ComponentProps<"svg">) => (
-  <svg viewBox="0 0 120 24" fill="currentColor" {...props}>
-    <text x="0" y="18" fontFamily="Georgia, 'Times New Roman', serif" fontSize="20" fontWeight="600" letterSpacing="1">ProfLink</text>
-  </svg>
-);
