@@ -19,11 +19,13 @@ const steps = [
     icon: Mail,
     title: "We reach out for you",
     time: "Weeks 1-4",
-    description: "Our system sends personalized emails to professors from your own Gmail. You just wait for responses.",
+    description: "We send 150-200 fully customized cold emails to professors from your own Gmail. Each email is unique, not a template.",
     details: [
-      "Hundreds of customized emails sent on your behalf",
-      "Each one references the professor's actual research",
-      "Professors see your real name and email, not a company",
+      "We read each professor's recent papers and pull specific context into your email",
+      "Every email references their actual research, methodology, and findings",
+      "Your background and interests are woven in to show genuine fit",
+      "Sent from your real Gmail so professors see a real student, not a platform",
+      "Staggered sending across days to look natural, not automated",
     ],
   },
   {
