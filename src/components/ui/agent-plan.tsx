@@ -1,200 +1,74 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ClipboardList, Mail, FlaskConical } from "lucide-react";
 
-interface Step {
-  number: number;
-  title: string;
-  description: string;
-  details: string[];
-}
-
-const steps: Step[] = [
+const steps = [
   {
-    number: 1,
-    title: "Fill out the Typeform",
-    description:
-      "A quick form to capture your skills, interests, experience, and Gmail address.",
+    icon: ClipboardList,
+    title: "Sign up",
+    time: "5 minutes",
+    description: "Fill out a quick form with your interests, skills, and Gmail address. We handle everything from here.",
     details: [
-      "Tell us what subjects excite you: biology, CS, economics, psychology, or anything else",
-      "List any coursework, projects, or extracurriculars that show your curiosity",
-      "Provide your Gmail address so outreach comes from your real account",
+      "Tell us your academic interests and goals",
+      "We build your outreach profile for you",
+      "No essays, no applications, no interviews",
     ],
   },
   {
-    number: 2,
-    title: "Automated professor outreach",
-    description:
-      "We identify relevant professors and send personalized cold emails from your Gmail.",
+    icon: Mail,
+    title: "We reach out for you",
+    time: "Weeks 1-4",
+    description: "Our system sends personalized emails to professors from your own Gmail. You just wait for responses.",
     details: [
-      "Our platform scans university faculty whose research aligns with your interests",
-      "Each email references the professor's specific work and your background",
-      "Emails are sent via your own Gmail SMTP, so professors see a real student",
+      "Hundreds of customized emails sent on your behalf",
+      "Each one references the professor's actual research",
+      "Professors see your real name and email, not a company",
     ],
   },
   {
-    number: 3,
-    title: "Get notified when professors respond",
-    description:
-      "Instant notifications so you never miss a response from a professor.",
+    icon: FlaskConical,
+    title: "Do real research",
+    time: "Months 2-4",
+    description: "Once a professor responds, you start working with them. Our AI assistant guides you through the entire process.",
     details: [
-      "Get alerted the moment a professor replies to your outreach",
-      "Follow up with interested professors and confirm your placement",
-    ],
-  },
-  {
-    number: 4,
-    title: "Unlock your AI research assistant",
-    description:
-      "Once placed, access an AI assistant that guides you through the entire research process.",
-    details: [
-      "Search academic databases and get AI-generated summaries of key findings",
-      "Get help organizing your paper: abstract, methodology, results, and conclusion",
-      "Learn how to design experiments and properly cite every source",
-    ],
-  },
-  {
-    number: 5,
-    title: "Publish and stand out",
-    description:
-      "Complete your research and build a standout profile for college applications.",
-    details: [
-      "Work with your professor to submit your paper to journals or conferences",
-      "Earn a recommendation letter from a professor who genuinely supervised your work",
-      "Add your published research and professor endorsement to your applications",
+      "Find papers, structure your writing, cite sources properly",
+      "Work toward a publishable paper with your professor",
+      "Earn a genuine recommendation letter",
     ],
   },
 ];
 
 export default function Plan() {
-  const [activeStep, setActiveStep] = useState(0);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Only update to the highest visible step to prevent flickering
-        const visibleIndices: number[] = [];
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = stepRefs.current.indexOf(
-              entry.target as HTMLDivElement
-            );
-            if (index !== -1) visibleIndices.push(index);
-          }
-        });
-        if (visibleIndices.length > 0) {
-          setActiveStep((prev) => Math.max(prev, ...visibleIndices));
-        }
-      },
-      {
-        // Only trigger when a step reaches the middle 20% of the viewport
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: 0,
-      }
-    );
-
-    stepRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="relative">
-      <div className="space-y-0">
-        {steps.map((step, index) => {
-          const isActive = index <= activeStep;
-          const isCurrent = index === activeStep;
-
-          return (
-            <div
-              key={step.number}
-              ref={(el) => {
-                stepRefs.current[index] = el;
-              }}
-              className="relative flex gap-6 min-h-[200px]"
-            >
-              {/* Timeline */}
-              <div className="flex flex-col items-center">
-                <div
-                  className={cn(
-                    "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all duration-700 ease-out",
-                    isActive
-                      ? "bg-primary text-primary-foreground scale-110"
-                      : "bg-muted text-muted-foreground"
-                  )}
-                >
-                  {step.number}
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="relative w-px flex-1 bg-border mt-3">
-                    <div
-                      className={cn(
-                        "absolute inset-x-0 top-0 w-full bg-primary transition-all duration-1000 ease-out",
-                        isActive ? "h-full" : "h-0"
-                      )}
-                    />
-                  </div>
-                )}
+    <div className="grid gap-8 md:grid-cols-3">
+      {steps.map((step, i) => {
+        const Icon = step.icon;
+        return (
+          <div key={i} className="relative rounded-xl border bg-card p-6">
+            {/* Step number */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                {i + 1}
               </div>
-
-              {/* Content */}
-              <div
-                className={cn(
-                  "pb-16 transition-all duration-700 ease-out",
-                  isActive ? "opacity-100" : "opacity-30"
-                )}
-              >
-                <h3
-                  className={cn(
-                    "text-lg font-semibold transition-all duration-700",
-                    isCurrent ? "text-foreground" : ""
-                  )}
-                >
-                  {step.title}
-                </h3>
-                <p className="mt-1.5 text-muted-foreground text-sm leading-relaxed max-w-lg">
-                  {step.description}
-                </p>
-
-                {/* Details - expand on active, stay visible once revealed */}
-                <div
-                  className={cn(
-                    "overflow-hidden transition-all duration-1000 ease-out",
-                    isActive
-                      ? "max-h-96 opacity-100 mt-5"
-                      : "max-h-0 opacity-0 mt-0"
-                  )}
-                >
-                  <ul className="space-y-3 border-l-2 border-border pl-4">
-                    {step.details.map((detail, i) => (
-                      <li
-                        key={i}
-                        className={cn(
-                          "text-sm text-muted-foreground leading-relaxed transition-all duration-700 ease-out",
-                          isActive
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-3 opacity-0"
-                        )}
-                        style={{
-                          transitionDelay: isActive
-                            ? `${i * 150 + 300}ms`
-                            : "0ms",
-                        }}
-                      >
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">{step.time}</span>
             </div>
-          );
-        })}
-      </div>
+
+            <Icon className="size-5 text-muted-foreground mb-3" />
+            <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+
+            <ul className="space-y-2">
+              {step.details.map((d, j) => (
+                <li key={j} className="flex items-start gap-2 text-xs text-muted-foreground">
+                  <span className="text-primary mt-0.5">+</span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 }

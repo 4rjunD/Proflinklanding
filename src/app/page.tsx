@@ -20,12 +20,15 @@ export default function Home() {
 
         {/* Process */}
         <section id="how-it-works" className="mx-auto max-w-5xl px-4 py-24">
-          <h2 className="mb-2 text-center text-3xl font-medium tracking-tight md:text-4xl">
-            Our process
-          </h2>
-          <p className="mb-10 text-center text-muted-foreground">
-            From sign-up to published paper, here&apos;s your journey.
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              3-4 months. Fully managed. Real results.
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              You fill out one form. We do everything else: professor outreach, email
+              management, and research support. All customized to your interests.
+            </p>
+          </div>
           <Plan />
         </section>
 
@@ -192,10 +195,11 @@ export default function Home() {
         <section data-cta-section className="relative mx-auto max-w-3xl px-4 py-24 text-center overflow-hidden">
           <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_50%,oklch(0.45_0.12_25/.06),transparent)]" />
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-            Ready to start your research journey?
+            Start your research in under 5 minutes
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-            Fill out a quick form with your interests and skills. Takes less than 5 minutes.
+            One form. We handle the rest. In 3-4 months you&apos;ll have real research,
+            a published paper, and a professor&apos;s recommendation.
           </p>
           <a
             href="https://form.typeform.com/to/KWrV6NVC"
