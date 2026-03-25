@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ClipboardList, Mail, FlaskConical } from "lucide-react";
+import { ClipboardList, Users, Mail, FlaskConical } from "lucide-react";
 
 const steps = [
   {
@@ -13,6 +13,17 @@ const steps = [
       "Tell us your academic interests and goals",
       "We build your outreach profile for you",
       "No essays, no applications, no interviews",
+    ],
+  },
+  {
+    icon: Users,
+    title: "Meet with us",
+    time: "10 minutes",
+    description: "A quick call where we learn about you, review your resume, and customize your outreach strategy around your specific interests.",
+    details: [
+      "We tailor everything to your background, goals, and target fields",
+      "Walk through your resume and highlight what professors care about",
+      "Set up your outreach profile so every email feels personal and authentic",
     ],
   },
   {
@@ -32,18 +43,19 @@ const steps = [
     icon: FlaskConical,
     title: "Do real research",
     time: "Months 2-4",
-    description: "Once a professor responds, you start working with them. Our AI assistant guides you through the entire process.",
+    description: "Once a professor responds, you start working with them. We walk you through the entire research process and help you every step of the way.",
     details: [
-      "Find papers, structure your writing, cite sources properly",
+      "We help you find relevant papers, understand methodology, and structure your writing",
+      "Collaborate with other ProfLink students going through the same process",
       "Work toward a publishable paper with your professor",
-      "Earn a genuine recommendation letter",
+      "Earn a genuine recommendation letter from faculty who know your work",
     ],
   },
 ];
 
 export default function Plan() {
   return (
-    <div className="grid gap-8 md:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {steps.map((step, i) => {
         const Icon = step.icon;
         return (
